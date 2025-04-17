@@ -11,6 +11,8 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.2",
+    "ahooks": "^3.8.4",
+    "classnames": "^2.5.1",
     "dayjs": "^1.11.13",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -42,5 +44,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "overrides": {
+    "ahooks": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   }
 }

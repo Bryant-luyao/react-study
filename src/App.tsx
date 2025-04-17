@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 function App() {
   return (
     <div className="App">
-      <Calendar value={dayjs('2025-04-08')}></Calendar>
+      <Calendar locale="en-US" defaultValue={dayjs('2025-04-08')}></Calendar>
     </div>
   );
 }
