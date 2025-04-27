@@ -1,0 +1,11 @@
+.App {
+  height: 100%;
+  display: flex;
+  .menus {
+    width: 200px;
+    height: 100%;
+  }
+  .layout {
+    flex: 1;
+  }
+}
