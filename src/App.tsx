@@ -4,7 +4,8 @@ import Calendar from './components/Calendar';
 import './App.scss';
 import IconDemo from './views/IconDemo';
 import SpaceDemo from './views/SpaceDemo';
-import Portal from './components/Portal';
+import PortalDemo from './views/PortalDemo';
+import MutateObserverDemo from './views/MutateObserverDemo';
 
 function App() {
   return (
@@ -22,13 +23,17 @@ function App() {
         <li>
           <Link to="/Portal">Portal</Link>
         </li>
+        <li>
+          <Link to="/MutateObserverDemo">MutateObserverDemo</Link>
+        </li>
       </ul>
       <div className="layout">
         <Routes>
           <Route index element={<Calendar locale="en-US" defaultValue={dayjs('2025-04-08')}></Calendar>}></Route>
           <Route path='/Icon' element={<IconDemo />}></Route>
           <Route path='/Space' element={<SpaceDemo />}></Route>
-          <Route path='/Portal' element={<Portal><button>挂载到了body</button></Portal>}></Route>
+          <Route path='/Portal' element={<PortalDemo/>}></Route>
+          <Route path='/MutateObserverDemo' element={<MutateObserverDemo />}></Route>
         </Routes>
       </div>
     </div>
