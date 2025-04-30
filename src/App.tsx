@@ -6,6 +6,7 @@ import IconDemo from './views/IconDemo';
 import SpaceDemo from './views/SpaceDemo';
 import PortalDemo from './views/PortalDemo';
 import MutateObserverDemo from './views/MutateObserverDemo';
+import CopyToClipboardDemo from './components/CopyToClipboard/demo';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         <li>
           <Link to="/MutateObserverDemo">MutateObserverDemo</Link>
         </li>
+        <li>
+          <Link to="/CopyToClipboard">CopyToClipboard</Link>
+        </li>
       </ul>
       <div className="layout">
         <Routes>
@@ -34,6 +38,7 @@ function App() {
           <Route path='/Space' element={<SpaceDemo />}></Route>
           <Route path='/Portal' element={<PortalDemo/>}></Route>
           <Route path='/MutateObserverDemo' element={<MutateObserverDemo />}></Route>
+          <Route path='/CopyToClipboard' element={<CopyToClipboardDemo />}></Route>
         </Routes>
       </div>
     </div>

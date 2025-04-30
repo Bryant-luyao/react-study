@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react"
+import React, { HTMLAttributes, useLayoutEffect, useRef, useState } from "react"
 import useMutateObserver from "../../hooks/useMutateObserver"
 
 interface MutateObserverProps {
@@ -23,7 +23,7 @@ const MutateObserver: React.FC<MutateObserverProps> = (props) => {
         return null
     }
 
-    return React.cloneElement(children, {ref: elementRef} as any);
+    return React.cloneElement(children, {ref: elementRef}  as HTMLAttributes<HTMLElement>);
 }
 
 export default MutateObserver
