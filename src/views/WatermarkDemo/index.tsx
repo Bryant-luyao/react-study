@@ -1,7 +1,7 @@
 import Watermark from "../../components/Watermark";
 
 const WatermarkDemo = () => {
-    return <Watermark content={["测试水印", '666']} fontStyle={{
+    return <Watermark content={["测试水印", '666']} gap={[0, 0]} offset={[50, 100]} fontStyle={{
         fontSize: "24px",
         color: "pink"
     }}>

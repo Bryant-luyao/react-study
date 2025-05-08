@@ -194,8 +194,8 @@ const useWatermark = (params: WatermarkOptions) => {
     const [options, setOptions] = useState(params || {});
 
     const mergedOptions = getMergeOptions(options)
-
     const watermarkDiv = useRef<HTMLDivElement>(null)
+    const mutationObserver = useRef<MutationObserver>(null);
 
     const container = mergedOptions.getContainer()
     const { zIndex, gap } = mergedOptions
@@ -204,12 +204,16 @@ const useWatermark = (params: WatermarkOptions) => {
         if(!container) return;
 
         getCanvasData(mergedOptions).then(({ base64Url, width, height }) => {
+
+            const offsetLeft = mergedOptions.offset[0] + 'px'
+            const offsetTop = mergedOptions.offset[1] + 'px'
+
             const wmStyle = `
-                width: 100%;
-                height: 100%;
+                width:  calc(100% - ${offsetLeft});
+                height: calc(100% - ${offsetTop});
                 position: absolute;
-                top: 0;
-                left: 0;
+                top: ${offsetTop};
+                left: ${offsetLeft};
                 bottom: 0;
                 right: 0;
                 pointer-events: none;
@@ -228,6 +232,36 @@ const useWatermark = (params: WatermarkOptions) => {
             }
 
             watermarkDiv.current?.setAttribute('style', wmStyle.trim());
+
+            if(container) {
+                mutationObserver.current?.disconnect();
+
+                mutationObserver.current = new MutationObserver((mutations) => {
+                    const isChanged = mutations.some((mutation) => {
+                        let flag = false;
+                        if(mutation.removedNodes.length) {
+                            flag = Array.from(mutation.removedNodes).some((node) => node === watermarkDiv.current)
+                        }
+
+                        if (mutation.type === 'attributes' && mutation.target === watermarkDiv.current) {
+                            flag = true
+                        }
+
+                        return flag;
+                    })
+
+                    if(isChanged) {
+                        watermarkDiv.current = null;
+                        drawWatermark()
+                    }
+                })
+
+                mutationObserver.current.observe(container, {
+                    attributes: true,
+                    subtree: true,
+                    childList: true
+                })
+            }
         })
     }
 
