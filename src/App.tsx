@@ -7,6 +7,7 @@ import SpaceDemo from './views/SpaceDemo';
 import PortalDemo from './views/PortalDemo';
 import MutateObserverDemo from './views/MutateObserverDemo';
 import CopyToClipboardDemo from './components/CopyToClipboard/demo';
+import WatermarkDemo from './views/WatermarkDemo';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
         <li>
           <Link to="/CopyToClipboard">CopyToClipboard</Link>
         </li>
+        <li>
+          <Link to="/Watermark">Watermark</Link>
+        </li>
       </ul>
       <div className="layout">
         <Routes>
@@ -39,6 +43,7 @@ function App() {
           <Route path='/Portal' element={<PortalDemo/>}></Route>
           <Route path='/MutateObserverDemo' element={<MutateObserverDemo />}></Route>
           <Route path='/CopyToClipboard' element={<CopyToClipboardDemo />}></Route>
+          <Route path='/Watermark' element={<WatermarkDemo />}></Route>
         </Routes>
       </div>
     </div>
