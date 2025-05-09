@@ -8,6 +8,7 @@ import PortalDemo from './views/PortalDemo';
 import MutateObserverDemo from './views/MutateObserverDemo';
 import CopyToClipboardDemo from './components/CopyToClipboard/demo';
 import WatermarkDemo from './views/WatermarkDemo';
+import LazyLoadDemo from './components/LazyLoad/demo';
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
         <li>
           <Link to="/Watermark">Watermark</Link>
         </li>
+        <li>
+          <Link to="/LazyLoad">LazyLoad</Link>
+        </li>
       </ul>
       <div className="layout">
         <Routes>
@@ -44,6 +48,8 @@ function App() {
           <Route path='/MutateObserverDemo' element={<MutateObserverDemo />}></Route>
           <Route path='/CopyToClipboard' element={<CopyToClipboardDemo />}></Route>
           <Route path='/Watermark' element={<WatermarkDemo />}></Route>
+          <Route path='/LazyLoad' element={<LazyLoadDemo />}></Route>
+
         </Routes>
       </div>
     </div>
