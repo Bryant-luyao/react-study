@@ -1,0 +1,27 @@
+.react-spring-demo {
+    height: 100%;
+    display: flex;
+
+    &__left {
+        width: 50%;
+        border-right: 1px solid #333;
+    }
+    &__right {
+        width: 50%;
+        height: 100%;
+        background: blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .single-demo {
+        background: blue;
+        height: 50px;
+        margin: 10px;
+    }
+
+    .smile-container {
+        width: 400px;
+        color: #fff;
+    }
+}
